@@ -9,33 +9,21 @@
     <title>StanderdUnion</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Responsive/Premium tap feedback for the buttons */
-        .action-grid button:active {
-            transform: scale(0.95);
-            opacity: 0.7;
-            transition: all 0.1s ease;
-        }
+        /* Mobile Container to ensure sticky footer */
+        .mobile-app { display: flex; flex-direction: column; min-height: 100vh; }
         
-        /* Premium Spinner Styling for 5-second transaction */
-        #processingSpinner {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-        .spinner-circle {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(197, 160, 74, 0.2);
-            border-top: 4px solid #c5a04a;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        /* Premium tap feedback */
+        .action-grid button:active { transform: scale(0.95); opacity: 0.7; transition: all 0.1s ease; }
+        
+        /* Spinner & Navigation Styling */
+        #processingSpinner { display: none; flex-direction: column; align-items: center; gap: 15px; }
+        .spinner-circle { width: 40px; height: 40px; border: 4px solid rgba(197, 160, 74, 0.2); border-top: 4px solid #c5a04a; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .bottom-nav { display: flex; justify-content: space-around; align-items: center; background: #fff; padding: 15px 0; border-top: 1px solid #eee; position: sticky; bottom: 0; width: 100%; margin-top: auto; z-index: 100; }
+        .nav-item { background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; color: #888; font-size: 18px; }
+        .nav-item small { font-size: 10px; font-weight: 600; }
+        .nav-item:hover { color: #c5a04a; }
     </style>
 </head>
 <body>
@@ -70,204 +58,50 @@
                     </div>
                     
                     <div class="action-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; padding-bottom: 10px;">
-                        <button onclick="showCryptoMarket()" style="background: transparent; border: none; color: #000; font-size: 10px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
-                            <span style="background: rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;">📈</span> Crypto
-                        </button>
-                        <button onclick="triggerProcessing('transfer')" style="background: transparent; border: none; color: #000; font-size: 10px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
-                            <span style="background: rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;">⇄</span> Trans
-                        </button>
-                        <button onclick="triggerProcessing('deposit')" style="background: transparent; border: none; color: #000; font-size: 10px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
-                            <span style="background: rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;">↓</span> Dep
-                        </button>
-                        <button onclick="triggerProcessing('pay')" style="background: transparent; border: none; color: #000; font-size: 10px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
-                            <span style="background: rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;">$</span> Pay
-                        </button>
-                        <button onclick="showMessageModal()" style="background: transparent; border: none; color: #000; font-size: 10px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
-                            <span style="background: rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;">✉</span> Msg
-                        </button>
+                        <button onclick="showCryptoMarket()" class="nav-item" style="color: #000;"><span>📈</span><small>Crypto</small></button>
+                        <button onclick="triggerProcessing()" class="nav-item" style="color: #000;"><span>⇄</span><small>Trans</small></button>
+                        <button onclick="triggerProcessing()" class="nav-item" style="color: #000;"><span>↓</span><small>Dep</small></button>
+                        <button onclick="triggerProcessing()" class="nav-item" style="color: #000;"><span>$</span><small>Pay</small></button>
+                        <button onclick="showMessageModal()" class="nav-item" style="color: #000;"><span>✉</span><small>Msg</small></button>
                     </div>
                 </div>
             </div>
 
             <div class="transactions-panel">
-                <div class="panel-header">
-                    <h3>Transactions</h3>
-                    <button class="icon-btn" style="background: none; border: none; font-size: 20px; cursor: pointer;">•••</button>
-                </div>
-
+                <div class="panel-header"><h3>Transactions</h3></div>
                 <div class="trans-item" onclick="showReceipt('Deposit: Investment', '+$250,000.00', 'Jan 15, 2026')">
-                    <div>
-                        <strong>Deposit: Investment</strong>
-                        <div class="trans-date">Jan 15, 2026 • Checking</div>
-                    </div>
+                    <div><strong>Deposit: Investment</strong><div class="trans-date">Jan 15, 2026 • Checking</div></div>
                     <span class="pos-amt">+$250,000.00</span>
                 </div>
-
-                <div class="trans-item" onclick="showReceipt('Wire Transfer', '+$150,000.00', 'Mar 10, 2024')">
-                    <div>
-                        <strong>Wire Transfer</strong>
-                        <div class="trans-date">Mar 10, 2024 • Checking</div>
-                    </div>
-                    <span class="pos-amt">+$150,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Corporate Bonus', '+$50,000.00', 'Dec 05, 2022')">
-                    <div>
-                        <strong>Corporate Bonus</strong>
-                        <div class="trans-date">Dec 05, 2022 • Checking</div>
-                    </div>
-                    <span class="pos-amt">+$50,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Dividend Payout', '+$12,000.00', 'Jul 20, 2020')">
-                    <div>
-                        <strong>Dividend Payout</strong>
-                        <div class="trans-date">Jul 20, 2020 • Checking</div>
-                    </div>
-                    <span class="pos-amt">+$12,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Asset Sale', '+$400,000.00', 'Sep 12, 2018')">
-                    <div>
-                        <strong>Asset Sale</strong>
-                        <div class="trans-date">Sep 12, 2018 • Checking</div>
-                    </div>
-                    <span class="pos-amt">+$400,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Wire Transfer (2013)', '+$5,000.00', 'Nov 15, 2013')">
-                    <div>
-                        <strong>Wire Transfer (2013)</strong>
-                        <div class="trans-date">Nov 15, 2013 • Checking</div>
-                    </div>
-                    <span class="pos-amt">+$5,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Online Purchase', '-$150.00', 'Jun 20, 2026')">
-                    <div>
-                        <strong>Online Purchase</strong>
-                        <div class="trans-date">Jun 20, 2026 • Checking</div>
-                    </div>
-                    <span class="neg-amt">-$150.00</span>
-                </div>
             </div>
+
+            <!-- Fixed Bottom Navigation Bar -->
+            <nav class="bottom-nav">
+                <button class="nav-item"><span>🏠</span><small>Home</small></button>
+                <button class="nav-item"><span>💳</span><small>Cards</small></button>
+                <button class="nav-item"><span>📊</span><small>Invest</small></button>
+                <button class="nav-item" onclick="showMessageModal()"><span>⚙️</span><small>Settings</small></button>
+            </nav>
         </div>
     </div>
 
-    <div id="cryptoMarketModal" class="modal">
-        <div class="modal-content" style="max-width: 360px; width: 90%; height: auto; padding-bottom: 20px;">
-            <h3 style="color: #8b6826; margin-bottom: 15px;">Live Cryptocurrency Market</h3>
-            <div class="tradingview-widget-container" style="margin-bottom: 15px;">
-                <div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-                {
-                "colorTheme": "light",
-                "dateRange": "12M",
-                "showChart": true,
-                "locale": "en",
-                "largeChartUrl": "",
-                "isTransparent": false,
-                "showSymbolLogo": true,
-                "showFloatingTooltip": false,
-                "width": "100%",
-                "height": "280",
-                "plotLineColorGrowing": "#2962FF",
-                "plotLineColorFalling": "#2962FF",
-                "gridLineColor": "#e9e9ea",
-                "scaleFontColor": "rgba(120, 120, 120, 1)",
-                "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
-                "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
-                "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
-                "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
-                "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
-                "symbols": [
-                  { "s": "BITSTAMP:BTCUSD", "d": "Bitcoin" },
-                  { "s": "BITSTAMP:ETHUSD", "d": "Ethereum" },
-                  { "s": "COINBASE:SOLUSD", "d": "Solana" }
-                ]
-                }
-                </script>
-            </div>
-            <button onclick="closeModals()" style="width: 100%; padding: 12px; margin-top: 10px;">Back to Account</button>
-        </div>
-    </div>
-
-    <div id="restrictionModal" class="modal">
-        <div class="modal-content">
-            <h3>Access Denied</h3>
-            <p>A processing fee of $25,000 is required before this withdrawal request can be completed. Please contact customer support for additional information regarding this requirement.</p>
-            <button onclick="closeModals()">OK</button>
-        </div>
-    </div>
-
-    <div id="processingModal" class="modal">
-        <div class="modal-content" style="background: #111; color: #fff; border: 1px solid #c5a04a; border-radius: 24px; padding: 40px 30px; text-align: center; max-width: 300px; width: 78%; margin: auto; box-shadow: 0 12px 30px rgba(0,0,0,0.6);">
-            <div id="processingSpinner">
-                <div class="spinner-circle"></div>
-                <h3 style="color: #c5a04a; margin: 10px 0 0 0;">Processing Transaction</h3>
-                <p style="color: #aaa; font-size: 13px;">Please wait 5 seconds...</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="withdrawalModal" class="modal">
-        <div class="modal-content" style="background: #111; color: #fff; border: 1px solid #c5a04a; border-radius: 24px; padding: 30px; text-align: center; max-width: 300px; width: 78%; margin: auto; box-shadow: 0 12px 30px rgba(0,0,0,0.6);">
-            <h3 style="color: #c62828; margin-top: 0;">Withdrawal Pending</h3>
-            <p style="color: #ccc; font-size: 14px; margin-bottom: 20px;">This transaction cannot be processed at this time. A required processing fee of $25,000 must be paid before the transaction can proceed. Please contact support for further assistance.</p>
-            <button onclick="closeModals()" style="background: #c5a04a; color: #000; border: none; padding: 12px 36px; border-radius: 12px; font-weight: 800; cursor: pointer;">OK</button>
-        </div>
-    </div>
-
-    <div id="messageModal" class="modal">
-        <div class="modal-content" style="background: #111; color: #fff; border: 1px solid #c5a04a; border-radius: 24px; padding: 30px; text-align: center; max-width: 300px; width: 78%; margin: auto; box-shadow: 0 12px 30px rgba(0,0,0,0.6);">
-            <h3 style="color: #c5a04a; margin-top: 0;">Support Center</h3>
-            <p style="color: #ccc; font-size: 14px; margin-bottom: 20px;">For assistance, please contact our support team via email:</p>
-            <p style="font-weight: bold; font-size: 15px; color: #c5a04a; margin: 15px 0;">Cryptofinanceservicess@Gmail.com</p>
-            <button onclick="closeModals()" style="background: #c5a04a; color: #000; border: none; padding: 12px 36px; border-radius: 12px; font-weight: 800; cursor: pointer; margin-top: 10px;">Close</button>
-        </div>
-    </div>
-
-    <div id="receiptModal" class="modal">
-        <div class="modal-content">
-            <h3>Transaction Receipt</h3>
-            <p id="receiptDetails"></p>
-            <button onclick="closeModals()">Close</button>
-        </div>
-    </div>
+    <!-- Modals -->
+    <div id="processingModal" class="modal"><div class="modal-content"><div id="processingSpinner"><div class="spinner-circle"></div><h3>Processing...</h3><p>Please wait 5 seconds</p></div></div></div>
+    <div id="withdrawalModal" class="modal"><div class="modal-content"><h3>Withdrawal Pending</h3><p>Fee of $25,000 required.</p><button onclick="closeModals()">OK</button></div></div>
+    <div id="messageModal" class="modal"><div class="modal-content"><h3>Support</h3><p>Cryptofinanceservicess@Gmail.com</p><button onclick="closeModals()">Close</button></div></div>
 
     <script>
         function showCryptoMarket() { document.getElementById('cryptoMarketModal').style.display = 'flex'; }
         function showMessageModal() { document.getElementById('messageModal').style.display = 'flex'; }
-        
-        // Premium 5-Second Transaction Logic
-        function triggerProcessing(type) {
-            const spinnerBox = document.getElementById('processingSpinner');
-            
-            // Show the processing modal and spinner
+        function triggerProcessing() {
             document.getElementById('processingModal').style.display = 'flex';
-            spinnerBox.style.display = 'flex';
-
-            // Wait 5 seconds (5000 milliseconds) before displaying the denial modal
+            document.getElementById('processingSpinner').style.display = 'flex';
             setTimeout(() => {
-                // Hide spinner
-                spinnerBox.style.display = 'none';
-                // Close the processing modal
                 document.getElementById('processingModal').style.display = 'none';
-                
-                // Trigger the pending modal as the result
                 document.getElementById('withdrawalModal').style.display = 'flex';
             }, 5000);
         }
-
-        function showReceipt(desc, amt, date) {
-            document.getElementById('receiptDetails').innerHTML = `<strong>${desc}</strong><br>${date}<br><br>Amount: <strong>${amt}</strong>`;
-            document.getElementById('receiptModal').style.display = 'flex';
-        }
-        
-        function closeModals() { 
-            document.querySelectorAll('.modal').forEach(m => m.style.display = 'none'); 
-            document.getElementById('processingSpinner').style.display = 'none';
-        }
+        function closeModals() { document.querySelectorAll('.modal').forEach(m => m.style.display = 'none'); }
     </script>
 </body>
 </html>
