@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        if(sessionStorage.getItem('loggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StanderdUnion</title>
@@ -10,8 +15,8 @@
     <div class="app-shell">
         <div class="mobile-app">
             <header class="user-header">
-                <h1>Hi, Robertoone</h1>
-                <div class="profile-img">R</div>
+                <h1>Hi, Williams</h1>
+                <div class="profile-img">W</div>
             </header>
 
             <p class="section-label">Accounts</p>
@@ -131,7 +136,7 @@
 
     <div id="msgModal" class="modal">
         <div class="modal-content">
-            <p>Support is currently unavailable for online access. Please check back later.</p>
+            <p>Support is currently unavailable. Please check back later.</p>
             <button onclick="closeModals()">OK</button>
         </div>
     </div>
