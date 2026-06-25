@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
     <script>
-        // Mandatory Authentication Check
-        if (sessionStorage.getItem('loggedIn') !== 'true') {
-            window.location.href = 'login.html';
-        }
+        if (sessionStorage.getItem('loggedIn') !== 'true') { window.location.href = 'login.html'; }
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StanderdUnion - Dashboard</title>
+    <title>StanderdUnion</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -37,23 +34,21 @@
                 </div>
                 
                 <div class="brown-shelf">
-                    <div class="carousel-dots">
-                        <div class="dot active"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                    </div>
                     <div class="action-grid">
-                        <button onclick="showRestriction()">
-                            <span class="action-icon">📊</span> Dash
+                        <button onclick="showCryptoTicker()">
+                            <span class="action-icon">📈</span> Crypto
                         </button>
-                        <button onclick="showRestriction()">
-                            <span class="action-icon">⇄</span> Trans
+                        <button onclick="showRestrictionModal()">
+                            <span class="action-icon">⇄</span> Transfer
                         </button>
-                        <button onclick="showRestriction()">
-                            <span class="action-icon">↓</span> Dep
+                        <button onclick="showRestrictionModal()">
+                            <span class="action-icon">↓</span> Deposit
                         </button>
-                        <button onclick="showRestriction()">
-                            <span class="action-icon">✉</span> Msg
+                        <button onclick="showRestrictionModal()">
+                            <span class="action-icon">$</span> Pay
+                        </button>
+                        <button onclick="showRestrictionModal()">
+                            <span class="action-icon">✉</span> Message
                         </button>
                     </div>
                 </div>
@@ -62,18 +57,18 @@
             <div class="transactions-panel">
                 <div class="panel-header">
                     <h3>Transactions</h3>
-                    <button class="icon-btn" onclick="showRestriction()">•••</button>
+                    <button class="icon-btn" onclick="showRestrictionModal()">•••</button>
                 </div>
 
-                <div class="trans-item" onclick="showRestriction()">
+                <div class="trans-item" onclick="showReceipt('Deposit: Investment', '+$250,000.00', 'Jan 15, 2026')">
                     <div>
                         <strong>Deposit: Investment</strong>
                         <div class="trans-date">Jan 15, 2026 • Checking</div>
                     </div>
                     <span class="pos-amt">+$250,000.00</span>
                 </div>
-                
-                <div class="trans-item" onclick="showRestriction()">
+
+                <div class="trans-item" onclick="showReceipt('Wire Transfer', '+$150,000.00', 'Mar 10, 2024')">
                     <div>
                         <strong>Wire Transfer</strong>
                         <div class="trans-date">Mar 10, 2024 • Checking</div>
@@ -81,31 +76,98 @@
                     <span class="pos-amt">+$150,000.00</span>
                 </div>
 
-                <div class="trans-item" onclick="showRestriction()">
+                <div class="trans-item" onclick="showReceipt('Corporate Bonus', '+$50,000.00', 'Dec 05, 2022')">
                     <div>
                         <strong>Corporate Bonus</strong>
                         <div class="trans-date">Dec 05, 2022 • Checking</div>
                     </div>
                     <span class="pos-amt">+$50,000.00</span>
                 </div>
+
+                <div class="trans-item" onclick="showReceipt('Dividend Payout', '+$12,000.00', 'Jul 20, 2020')">
+                    <div>
+                        <strong>Dividend Payout</strong>
+                        <div class="trans-date">Jul 20, 2020 • Checking</div>
+                    </div>
+                    <span class="pos-amt">+$12,000.00</span>
+                </div>
+
+                <div class="trans-item" onclick="showReceipt('Asset Sale', '+$400,000.00', 'Sep 12, 2018')">
+                    <div>
+                        <strong>Asset Sale</strong>
+                        <div class="trans-date">Sep 12, 2018 • Checking</div>
+                    </div>
+                    <span class="pos-amt">+$400,000.00</span>
+                </div>
+
+                <div class="trans-item" onclick="showReceipt('Wire Transfer (2013)', '+$5,000.00', 'Nov 15, 2013')">
+                    <div>
+                        <strong>Wire Transfer (2013)</strong>
+                        <div class="trans-date">Nov 15, 2013 • Checking</div>
+                    </div>
+                    <span class="pos-amt">+$5,000.00</span>
+                </div>
+
+                <div class="trans-item" onclick="showReceipt('Online Purchase', '-$150.00', 'Jun 20, 2026')">
+                    <div>
+                        <strong>Online Purchase</strong>
+                        <div class="trans-date">Jun 20, 2026 • Checking</div>
+                    </div>
+                    <span class="neg-amt">-$150.00</span>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <div id="cryptoModal" class="modal">
+        <div class="modal-content" style="max-width: 360px; width: 90%;">
+            <h3>Live Crypto Market</h3>
+            <div class="tradingview-widget-container" style="height: 240px; margin-bottom: 20px;">
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                {
+                "symbols": [
+                  {"proName": "BITSTAMP:BTCUSD", "title": "Bitcoin"},
+                  {"proName": "BITSTAMP:ETHUSD", "title": "Ethereum"},
+                  {"proName": "BINANCE:BNBUSDT", "title": "BNB"},
+                  {"proName": "COINBASE:SOLUSD", "title": "Solana"},
+                  {"proName": "BINANCE:XRPUSDT", "title": "XRP"}
+                ],
+                "showSymbolLogo": true,
+                "isTransparent": false,
+                "displayMode": "adaptive",
+                "colorTheme": "light",
+                "locale": "en"
+                }
+                </script>
+            </div>
+            <button onclick="closeModals()">Close</button>
         </div>
     </div>
 
     <div id="restrictionModal" class="modal">
         <div class="modal-content">
-            <p>Access Denied. A processing fee of $25,000 is required before this withdrawal request can be completed. Please contact customer support for additional information regarding this requirement.</p>
-            <button onclick="closeModal()">OK</button>
+            <h3>Access Denied</h3>
+            <p>A processing fee of $25,000 is required before this withdrawal request can be completed. Please contact customer support for additional information regarding this requirement.</p>
+            <button onclick="closeModals()">OK</button>
+        </div>
+    </div>
+
+    <div id="receiptModal" class="modal">
+        <div class="modal-content">
+            <h3>Transaction Receipt</h3>
+            <p id="receiptDetails"></p>
+            <button onclick="closeModals()">Close</button>
         </div>
     </div>
 
     <script>
-        function showRestriction() {
-            document.getElementById('restrictionModal').style.display = 'flex';
+        function showCryptoTicker() { document.getElementById('cryptoModal').style.display = 'flex'; }
+        function showRestrictionModal() { document.getElementById('restrictionModal').style.display = 'flex'; }
+        function showReceipt(desc, amt, date) {
+            document.getElementById('receiptDetails').innerHTML = `<strong>${desc}</strong><br>${date}<br><br>Amount: <strong>${amt}</strong>`;
+            document.getElementById('receiptModal').style.display = 'flex';
         }
-        function closeModal() {
-            document.getElementById('restrictionModal').style.display = 'none';
-        }
+        function closeModals() { document.querySelectorAll('.modal').forEach(m => m.style.display = 'none'); }
     </script>
 </body>
 </html>
