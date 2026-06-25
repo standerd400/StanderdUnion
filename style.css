@@ -6,6 +6,56 @@ body {
     color: #000;
 }
 
+/* --- Login Page Styles --- */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #0a2540;
+}
+
+.login-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.login-container h2 {
+    margin-top: 0;
+    color: #0a2540;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background: #c5a04a;
+    border: none;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: #000;
+}
+
+.login-container button:hover {
+    filter: brightness(1.05);
+}
+
 /* --- Mobile App Shell (index.html) --- */
 .app-shell {
     display: flex;
@@ -140,7 +190,7 @@ body {
     background: #fff;
 }
 
-/* Action Grid Buttons (Yellow buttons on dark brown block for contrast) */
+/* Action Grid Buttons */
 .action-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -149,7 +199,7 @@ body {
 }
 
 .action-grid button {
-    background: #c5a04a; /* Gold buttons for contrast against dark brown */
+    background: #c5a04a;
     border: none;
     border-radius: 16px;
     padding: 14px 2px;
