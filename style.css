@@ -1,13 +1,14 @@
-body { background: #000; font-family: -apple-system, sans-serif; margin: 0; display: flex; justify-content: center; }
-.mobile-app { width: 100%; max-width: 400px; background: #fff; min-height: 100vh; padding: 20px; box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, sans-serif; background: #333; }
+.app-background { background: #555; min-height: 100vh; display: flex; justify-content: center; padding: 20px 0; }
+.mobile-app { width: 100%; max-width: 400px; background: #fff; border-radius: 30px; padding: 20px; box-sizing: border-box; }
 .user-header h1 { font-size: 28px; margin-bottom: 20px; font-weight: 800; }
-.account-card { background: #c5a04a; padding: 20px; border-radius: 20px; color: #000; }
+.account-card { background: #c5a04a; padding: 25px; border-radius: 20px; color: #000; }
 .account-card h2 { margin: 10px 0; font-size: 32px; }
-.actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
-.actions button { background: #f0f0f0; border: none; padding: 15px 5px; border-radius: 12px; font-size: 13px; font-weight: 600; color: #0066cc; cursor: pointer; }
-.transactions h3 { margin-top: 30px; font-size: 20px; }
-.item { display: flex; justify-content: space-between; padding: 15px 0; font-weight: 600; border-bottom: 1px solid #f9f9f9; }
-.positive { color: #1e8449; }
-.negative { color: #cb4335; }
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
+.actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 25px 0; }
+.actions button { background: #f0f0f0; border: none; padding: 12px 5px; border-radius: 12px; font-size: 11px; font-weight: 600; color: #0066cc; cursor: pointer; }
+.transactions h3 { font-size: 20px; margin-bottom: 10px; }
+.item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #eee; }
+.positive { color: #1e8449; font-weight: bold; }
+.negative { color: #cb4335; font-weight: bold; }
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; }
 .modal-content { background: #fff; padding: 25px; border-radius: 20px; width: 80%; text-align: center; }
