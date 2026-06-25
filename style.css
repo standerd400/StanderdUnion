@@ -1,10 +1,15 @@
-body { margin: 0; font-family: -apple-system, sans-serif; background: #222; }
-.app-shell { min-height: 100vh; display: flex; justify-content: center; align-items: center; }
-.mobile-app { width: 100%; max-width: 400px; background: #fff; border-radius: 40px; padding: 25px; box-sizing: border-box; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
-.account-card { background: #c5a04a; padding: 25px; border-radius: 25px; color: #000; }
+body { background: #000; display: flex; justify-content: center; margin: 0; font-family: -apple-system, sans-serif; }
+.mobile-app { width: 100%; max-width: 400px; background: #fff; padding: 25px; border-radius: 40px; min-height: 100vh; box-sizing: border-box; }
+.account-card { 
+    background: #c5a04a; 
+    padding: 25px; 
+    border-radius: 25px; 
+    box-shadow: 0 10px 0 #a07d35; /* This creates the layered 'brown' shadow effect */
+    color: #000; 
+}
 .actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 25px 0; }
-.actions button { background: #f0f0f0; border: none; padding: 12px 0; border-radius: 12px; font-size: 11px; font-weight: 700; color: #0066cc; cursor: pointer; }
-.item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #f0f0f0; cursor: pointer; }
+button { background: #f0f0f0; border: none; padding: 12px 5px; border-radius: 12px; font-size: 11px; font-weight: 700; color: #0066cc; cursor: pointer; }
+.item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #eee; }
 .positive { color: #1e8449; font-weight: bold; }
 .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; }
-.modal-content { background: #fff; padding: 30px; border-radius: 20px; width: 80%; text-align: center; }
+.modal-content { background: #fff; padding: 25px; border-radius: 20px; width: 80%; text-align: center; }
