@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-background">
+    <div class="app-shell">
         <div class="mobile-app">
-            <header class="user-header"><h1>Hi, Williams</h1></header>
+            <header><h1>Hi, Williams</h1></header>
             <div class="account-card">
                 <p>Checking ••••30411</p>
                 <h2>$850,000.00</h2>
@@ -23,24 +23,35 @@
             </div>
             <div class="transactions">
                 <h3>Transactions</h3>
-                <div class="item"><div><strong>Deposit: Investment</strong><br><small>Jan 15, 2026</small></div><span class="positive">+$250,000.00</span></div>
-                <div class="item"><div><strong>Wire Transfer</strong><br><small>Mar 10, 2024</small></div><span class="positive">+$150,000.00</span></div>
-                <div class="item"><div><strong>Corporate Bonus</strong><br><small>Dec 05, 2022</small></div><span class="positive">+$50,000.00</span></div>
-                <div class="item"><div><strong>Dividend Payout</strong><br><small>Jul 20, 2020</small></div><span class="positive">+$12,000.00</span></div>
-                <div class="item"><div><strong>Asset Sale</strong><br><small>Sep 12, 2018</small></div><span class="positive">+$400,000.00</span></div>
-                <div class="item"><div><strong>Wire Transfer</strong><br><small>Nov 15, 2013</small></div><span class="positive">+$5,000.00</span></div>
-                <div class="item"><div><strong>Online Purchase</strong><br><small>Jun 20, 2026</small></div><span class="negative">-$150.00</span></div>
+                <div class="item" onclick="showReceipt('Deposit: Investment', '+$250,000.00', 'Jan 15, 2026')">
+                    <div><strong>Deposit: Investment</strong><br><small>Jan 15, 2026</small></div><span class="positive">+$250,000.00</span>
+                </div>
+                <div class="item" onclick="showReceipt('Wire Transfer', '+$150,000.00', 'Mar 10, 2024')">
+                    <div><strong>Wire Transfer</strong><br><small>Mar 10, 2024</small></div><span class="positive">+$150,000.00</span>
+                </div>
+                <div class="item" onclick="showReceipt('Corporate Bonus', '+$50,000.00', 'Dec 05, 2022')">
+                    <div><strong>Corporate Bonus</strong><br><small>Dec 05, 2022</small></div><span class="positive">+$50,000.00</span>
+                </div>
+                <div class="item" onclick="showReceipt('Dividend Payout', '+$12,000.00', 'Jul 20, 2020')">
+                    <div><strong>Dividend Payout</strong><br><small>Jul 20, 2020</small></div><span class="positive">+$12,000.00</span>
+                </div>
+                <div class="item" onclick="showReceipt('Asset Sale', '+$400,000.00', 'Sep 12, 2018')">
+                    <div><strong>Asset Sale</strong><br><small>Sep 12, 2018</small></div><span class="positive">+$400,000.00</span>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Modals -->
+    <div id="receiptModal" class="modal"><div class="modal-content"><h3>Transaction Receipt</h3><p id="receiptDetails"></p><button onclick="closeModal()">Close</button></div></div>
     <div id="feeModal" class="modal"><div class="modal-content"><p>A $25,000.00 fee is required to process this. Contact support.</p><button onclick="closeModal()">OK</button></div></div>
-    <div id="msgModal" class="modal"><div class="modal-content"><p>Support is unavailable. Please try again later.</p><button onclick="closeModal()">OK</button></div></div>
 
     <script>
+        function showReceipt(name, amt, date) { 
+            document.getElementById('receiptDetails').innerText = name + " | " + amt + " | " + date; 
+            document.getElementById('receiptModal').style.display = 'flex'; 
+        }
         function showFee() { document.getElementById('feeModal').style.display = 'flex'; }
-        function showMessage() { document.getElementById('msgModal').style.display = 'flex'; }
         function closeModal() { document.querySelectorAll('.modal').forEach(m => m.style.display = 'none'); }
     </script>
 </body>
