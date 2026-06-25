@@ -1,12 +1,14 @@
 body { font-family: sans-serif; background: #f4f6f8; margin: 0; }
 .dashboard { display: flex; height: 100vh; }
 .sidebar { width: 250px; background: #002b5c; color: white; padding: 20px; }
+.sidebar p { cursor: pointer; padding: 10px 0; border-bottom: 1px solid #004080; }
 .main-content { flex: 1; padding: 40px; }
-.balance-card { 
-    background: white; 
-    padding: 30px; 
-    border-radius: 12px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    max-width: 300px;
-}
-h2 { color: #002b5c; }
+.account-details { margin-bottom: 20px; color: #555; }
+.balance-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 300px; }
+button { background: #002b5c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+.transaction-container { margin-top: 30px; background: white; padding: 20px; border-radius: 12px; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th { text-align: left; color: #888; padding: 10px; }
+td { padding: 10px; border-top: 1px solid #f0f0f0; }
+.positive { color: green; font-weight: bold; }
+.negative { color: red; font-weight: bold; }
