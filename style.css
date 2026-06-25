@@ -1,15 +1,397 @@
-body { background: #000; display: flex; justify-content: center; margin: 0; font-family: -apple-system, sans-serif; }
-.mobile-app { width: 100%; max-width: 400px; background: #fff; padding: 25px; border-radius: 40px; min-height: 100vh; box-sizing: border-box; }
-.account-card { 
-    background: #c5a04a; 
-    padding: 25px; 
-    border-radius: 25px; 
-    box-shadow: 0 10px 0 #a07d35; /* This creates the layered 'brown' shadow effect */
-    color: #000; 
+/* --- Global Resets & Typography --- */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #111;
+    color: #000;
 }
-.actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 25px 0; }
-button { background: #f0f0f0; border: none; padding: 12px 5px; border-radius: 12px; font-size: 11px; font-weight: 700; color: #0066cc; cursor: pointer; }
-.item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #eee; }
-.positive { color: #1e8449; font-weight: bold; }
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; }
-.modal-content { background: #fff; padding: 25px; border-radius: 20px; width: 80%; text-align: center; }
+
+/* --- Mobile App Shell (index.html) --- */
+.app-shell {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.mobile-app {
+    width: 100%;
+    max-width: 430px;
+    background: #fff;
+    min-height: 100vh;
+    padding: 24px 20px 0 20px;
+    box-sizing: border-box;
+    border-radius: 42px;
+    position: relative;
+    overflow-y: auto;
+}
+
+.user-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.user-header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.profile-img {
+    width: 42px;
+    height: 42px;
+    background: #1c1c1c;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.section-label {
+    color: #777;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 32px 0 10px 0;
+}
+
+/* 3D Layered Card (Brown Under Yellow) */
+.account-card {
+    background: #c5a04a; /* The exact golden-yellow tone */
+    border-bottom: 14px solid #997422; /* Thick physical 3D shelf underneath */
+    padding: 22px 20px;
+    border-radius: 20px;
+    color: #000;
+}
+
+.card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.account-type {
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.account-number {
+    font-size: 13px;
+    color: #2c2c2c;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.balance {
+    font-size: 28px;
+    font-weight: 800;
+    text-align: right;
+    letter-spacing: -0.5px;
+}
+
+.balance-sub {
+    font-size: 12px;
+    color: #2c2c2c;
+    font-weight: 700;
+    text-align: right;
+    margin-top: 4px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 16px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #ddd;
+    border-radius: 50%;
+}
+
+.dot.active {
+    background: #888;
+}
+
+/* Action Grid Buttons */
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 32px 0;
+}
+
+.action-grid button {
+    background: #f0f4f8;
+    border: none;
+    border-radius: 16px;
+    padding: 14px 2px;
+    color: #0d5ee6;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.action-grid button:hover {
+    background: #e1ebf5;
+}
+
+.action-icon {
+    font-size: 18px;
+    background: #d8e4f0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Transaction Section */
+.transactions-panel {
+    background: #fff;
+    color: #000;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    padding-top: 12px;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.panel-header h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+}
+
+.trans-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #f3f3f3;
+    cursor: pointer;
+}
+
+.trans-item strong {
+    font-size: 15px;
+}
+
+.trans-date {
+    color: #666;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.pos-amt {
+    color: #2e7d32;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.neg-amt {
+    color: #c62828;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+/* --- Modals --- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 24px;
+    width: 78%;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.modal-content p {
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.modal-content button {
+    background: #c5a04a;
+    color: #000;
+    border: none;
+    padding: 10px 36px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* --- Desktop Dashboard Layout (dashboard.html) --- */
+.dash-body {
+    background: #f4f6f9;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.dash-layout {
+    display: flex;
+    height: 100vh;
+}
+
+.dash-sidebar {
+    width: 260px;
+    background: #0a2540; /* Clean administrative dark blue */
+    color: #fff;
+    padding: 32px 24px;
+    box-sizing: border-box;
+}
+
+.dash-brand {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 54px;
+    letter-spacing: -0.5px;
+}
+
+.dash-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.nav-link {
+    color: #8da2b5;
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dash-main {
+    flex-grow: 1;
+    padding: 40px 60px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.dash-main-header {
+    margin-bottom: 32px;
+}
+
+.dash-main-header h2 {
+    font-size: 34px;
+    margin: 0 0 8px 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.dash-main-header p {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dash-kpi-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 24px;
+}
+
+.dash-kpi-card h3 {
+    font-size: 16px;
+    color: #555;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.kpi-value {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+.kpi-btn {
+    background: #0a2540;
+    color: #fff;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.dash-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.dash-table th {
+    text-align: left;
+    color: #666;
+    font-size: 13px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #eee;
+}
+
+.dash-table td {
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.dash-table tbody tr {
+    cursor: pointer;
+}
+
+.dash-table tbody tr:hover {
+    background: #f9fafb;
+}
