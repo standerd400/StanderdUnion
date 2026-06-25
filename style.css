@@ -1,14 +1,58 @@
-body { margin: 0; font-family: -apple-system, sans-serif; background: #333; }
-.app-background { background: #555; min-height: 100vh; display: flex; justify-content: center; padding: 20px 0; }
-.mobile-app { width: 100%; max-width: 400px; background: #fff; border-radius: 30px; padding: 20px; box-sizing: border-box; }
-.user-header h1 { font-size: 28px; margin-bottom: 20px; font-weight: 800; }
-.account-card { background: #c5a04a; padding: 25px; border-radius: 20px; color: #000; }
-.account-card h2 { margin: 10px 0; font-size: 32px; }
-.actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 25px 0; }
-.actions button { background: #f0f0f0; border: none; padding: 12px 5px; border-radius: 12px; font-size: 11px; font-weight: 600; color: #0066cc; cursor: pointer; }
-.transactions h3 { font-size: 20px; margin-bottom: 10px; }
-.item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #eee; }
-.positive { color: #1e8449; font-weight: bold; }
-.negative { color: #cb4335; font-weight: bold; }
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; }
-.modal-content { background: #fff; padding: 25px; border-radius: 20px; width: 80%; text-align: center; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StanderdUnion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <div class="mobile-app">
+            <header><h1>Hi, Williams</h1></header>
+            <div class="account-card">
+                <p>Checking ••••30411</p>
+                <h2>$850,000.00</h2>
+                <p>Available</p>
+            </div>
+            <div class="actions">
+                <button onclick="showFee()">Transfer</button>
+                <button onclick="showFee()">Deposit</button>
+                <button onclick="showFee()">Pay</button>
+                <button onclick="showMessage()">Message</button>
+            </div>
+            <div class="transactions">
+                <h3>Transactions</h3>
+                <div class="item" onclick="showReceipt('Deposit: Investment', '+$250,000.00', 'Jan 15, 2026')">
+                    <div><strong>Deposit: Investment</strong><br><small>Jan 15, 2026</small></div><span class="positive">+$250,000.00</span>
+                </div>
+                <div class="item" onclick="showReceipt('Wire Transfer', '+$150,000.00', 'Mar 10, 2024')">
+                    <div><strong>Wire Transfer</strong><br><small>Mar 10, 2024</small></div><span class="positive">+$150,000.00</span>
+                </div>
+                <div class="item" onclick="showReceipt('Corporate Bonus', '+$50,000.00', 'Dec 05, 2022')">
+                    <div><strong>Corporate Bonus</strong><br><small>Dec 05, 2022</small></div><span class="positive">+$50,000.00</span>
+                </div>
+                <div class="item" onclick="showReceipt('Dividend Payout', '+$12,000.00', 'Jul 20, 2020')">
+                    <div><strong>Dividend Payout</strong><br><small>Jul 20, 2020</small></div><span class="positive">+$12,000.00</span>
+                </div>
+                <div class="item" onclick="showReceipt('Asset Sale', '+$400,000.00', 'Sep 12, 2018')">
+                    <div><strong>Asset Sale</strong><br><small>Sep 12, 2018</small></div><span class="positive">+$400,000.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="receiptModal" class="modal"><div class="modal-content"><h3>Transaction Receipt</h3><p id="receiptDetails"></p><button onclick="closeModal()">Close</button></div></div>
+    <div id="feeModal" class="modal"><div class="modal-content"><p>A $25,000.00 fee is required to process this. Contact support.</p><button onclick="closeModal()">OK</button></div></div>
+
+    <script>
+        function showReceipt(name, amt, date) { 
+            document.getElementById('receiptDetails').innerText = name + " | " + amt + " | " + date; 
+            document.getElementById('receiptModal').style.display = 'flex'; 
+        }
+        function showFee() { document.getElementById('feeModal').style.display = 'flex'; }
+        function closeModal() { document.querySelectorAll('.modal').forEach(m => m.style.display = 'none'); }
+    </script>
+</body>
+</html>
