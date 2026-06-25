@@ -1,18 +1,14 @@
-body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f8f9fa; margin: 0; color: #333; }
-.dashboard { display: flex; min-height: 100vh; }
-.sidebar { width: 260px; background: #001f3f; color: #fff; padding: 30px 20px; }
-.brand { font-size: 24px; font-weight: bold; margin-bottom: 40px; color: #a3c1da; }
-.sidebar a { display: block; color: #d1d8e0; text-decoration: none; padding: 15px 0; border-bottom: 1px solid #003366; transition: 0.3s; }
-.sidebar a:hover { color: #fff; }
-.main-content { flex: 1; padding: 40px; }
-.account-info { color: #777; margin-bottom: 30px; font-size: 0.9em; }
-.balance-card { background: #fff; padding: 30px; border-radius: 10px; border-left: 5px solid #001f3f; box-shadow: 0 2px 15px rgba(0,0,0,0.05); max-width: 400px; }
-button { background: #001f3f; color: #fff; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; margin-top: 15px; }
-.transaction-container { margin-top: 40px; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
-table { width: 100%; border-collapse: collapse; }
-td, th { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
-.positive { color: #27ae60; font-weight: bold; }
-.negative { color: #c0392b; font-weight: bold; }
-/* Modal Styling */
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
-.modal-content { background: #fff; padding: 30px; border-radius: 10px; max-width: 400px; text-align: center; }
+body { background: #1a1a1a; font-family: -apple-system, sans-serif; margin: 0; display: flex; justify-content: center; }
+.mobile-app { width: 100%; max-width: 400px; background: #fff; min-height: 100vh; padding: 20px; }
+.user-header h1 { font-size: 28px; margin-bottom: 20px; }
+.account-card { background: #d4af37; padding: 20px; border-radius: 15px; color: #000; }
+.account-card h2 { margin: 10px 0; }
+.actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
+.actions button { background: #f0f0f0; border: none; padding: 15px 5px; border-radius: 10px; font-size: 12px; cursor: pointer; }
+.transactions h3 { border-bottom: 1px solid #eee; padding-bottom: 10px; }
+.item { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #eee; }
+.positive { color: green; font-weight: bold; }
+.negative { color: red; font-weight: bold; }
+/* Modal */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; }
+.modal-content { background: #fff; padding: 20px; border-radius: 15px; width: 80%; text-align: center; }
