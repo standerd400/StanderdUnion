@@ -34,8 +34,8 @@
                 </div>
                 
                 <div class="brown-shelf">
-                    <div class="action-grid">
-                        <button onclick="showCryptoTicker()">
+                    <div class="action-grid" style="grid-template-columns: repeat(4, 1fr);">
+                        <button onclick="showCryptoMarket()">
                             <span class="action-icon">📈</span> Crypto
                         </button>
                         <button onclick="showRestrictionModal()">
@@ -43,9 +43,6 @@
                         </button>
                         <button onclick="showRestrictionModal()">
                             <span class="action-icon">↓</span> Deposit
-                        </button>
-                        <button onclick="showRestrictionModal()">
-                            <span class="action-icon">$</span> Pay
                         </button>
                         <button onclick="showRestrictionModal()">
                             <span class="action-icon">✉</span> Message
@@ -119,28 +116,43 @@
         </div>
     </div>
 
-    <div id="cryptoModal" class="modal">
-        <div class="modal-content" style="max-width: 360px; width: 90%;">
-            <h3>Live Crypto Market</h3>
-            <div class="tradingview-widget-container" style="height: 240px; margin-bottom: 20px;">
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    <div id="cryptoMarketModal" class="modal">
+        <div class="modal-content" style="max-width: 360px; width: 90%; height: auto; padding-bottom: 20px;">
+            <h3 style="color: #8b6826; margin-bottom: 15px;">Live Cryptocurrency Market</h3>
+            
+            <div class="tradingview-widget-container" style="margin-bottom: 15px;">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
                 {
-                "symbols": [
-                  {"proName": "BITSTAMP:BTCUSD", "title": "Bitcoin"},
-                  {"proName": "BITSTAMP:ETHUSD", "title": "Ethereum"},
-                  {"proName": "BINANCE:BNBUSDT", "title": "BNB"},
-                  {"proName": "COINBASE:SOLUSD", "title": "Solana"},
-                  {"proName": "BINANCE:XRPUSDT", "title": "XRP"}
-                ],
-                "showSymbolLogo": true,
-                "isTransparent": false,
-                "displayMode": "adaptive",
                 "colorTheme": "light",
-                "locale": "en"
+                "dateRange": "12M",
+                "showChart": true,
+                "locale": "en",
+                "largeChartUrl": "",
+                "isTransparent": false,
+                "showSymbolLogo": true,
+                "showFloatingTooltip": false,
+                "width": "100%",
+                "height": "280",
+                "plotLineColorGrowing": "#2962FF",
+                "plotLineColorFalling": "#2962FF",
+                "gridLineColor": "#e9e9ea",
+                "scaleFontColor": "rgba(120, 120, 120, 1)",
+                "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+                "symbols": [
+                  { "s": "BITSTAMP:BTCUSD", "d": "Bitcoin" },
+                  { "s": "BITSTAMP:ETHUSD", "d": "Ethereum" },
+                  { "s": "COINBASE:SOLUSD", "d": "Solana" }
+                ]
                 }
                 </script>
             </div>
-            <button onclick="closeModals()">Close</button>
+
+            <button onclick="closeModals()" style="width: 100%; padding: 12px; margin-top: 10px;">Back to Account</button>
         </div>
     </div>
 
@@ -161,7 +173,7 @@
     </div>
 
     <script>
-        function showCryptoTicker() { document.getElementById('cryptoModal').style.display = 'flex'; }
+        function showCryptoMarket() { document.getElementById('cryptoMarketModal').style.display = 'flex'; }
         function showRestrictionModal() { document.getElementById('restrictionModal').style.display = 'flex'; }
         function showReceipt(desc, amt, date) {
             document.getElementById('receiptDetails').innerHTML = `<strong>${desc}</strong><br>${date}<br><br>Amount: <strong>${amt}</strong>`;
