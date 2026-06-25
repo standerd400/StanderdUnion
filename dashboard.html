@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        if(sessionStorage.getItem('loggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StanderdUnion - Dashboard</title>
@@ -20,7 +25,7 @@
 
         <main class="dash-main">
             <header class="dash-main-header">
-                <h2>Welcome back, Robertoone</h2>
+                <h2>Welcome back, Williams</h2>
                 <p>Account ID: ••••30411</p>
             </header>
 
@@ -58,6 +63,8 @@
                         </tr>
                     </tbody>
                 </table>
+                <br>
+                <button onclick="sessionStorage.clear(); window.location.href='login.html'" style="background:#0a2540; color:#fff; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-weight:bold;">Log Out</button>
             </div>
         </main>
     </div>
