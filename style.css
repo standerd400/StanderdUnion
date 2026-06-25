@@ -1,22 +1,21 @@
-/* General Base */
-body { margin: 0; font-family: -apple-system, sans-serif; background: #0a0a0a; color: #fff; }
+body { margin: 0; font-family: -apple-system, sans-serif; background: #0a0a0a; color: #000; }
 
-/* Login Page Theme */
-.login-body { display: flex; justify-content: center; align-items: center; height: 100vh; }
-.login-container { width: 380px; padding: 40px; background: #111; border-radius: 20px; text-align: center; }
-.brand { font-size: 32px; font-weight: 800; color: #c5a04a; }
-.welcome-msg { color: #888; margin-bottom: 30px; font-size: 14px; }
-input { width: 100%; padding: 16px; margin: 10px 0; background: #1a1a1a; border: 1px solid #333; border-radius: 12px; color: #fff; box-sizing: border-box; }
-button { width: 100%; padding: 16px; background: #c5a04a; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; color: #000; }
-
-/* Dashboard Layers */
 .app-shell { display: flex; justify-content: center; min-height: 100vh; }
-.mobile-app { width: 430px; background: #fff; color: #000; padding: 20px; border-radius: 40px; }
-.layered-card-wrapper { background: #5c4114; border-radius: 24px; padding-bottom: 15px; }
-.account-card { background: #fdf5e6; padding: 20px; border-radius: 20px; color: #000; }
-.brown-shelf { background: #8b6826; padding: 15px; border-radius: 0 0 20px 20px; }
-.action-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
-.action-grid button { background: #fdf5e6; border: none; border-radius: 10px; padding: 8px; font-size: 9px; font-weight: bold; cursor: pointer; }
-.transactions-panel { background: #fff; padding: 20px; border-top-left-radius: 30px; border-top-right-radius: 30px; margin-top: 20px; }
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; }
-.modal-content { background: #fff; padding: 30px; border-radius: 20px; width: 80%; max-width: 300px; text-align: center; color: #000; }
+.mobile-app { width: 430px; background: #f4f4f4; min-height: 100vh; padding: 20px; box-sizing: border-box; }
+
+/* The background/card layering as seen in image_5.png */
+.layered-card-wrapper { background: #5c4114; border-radius: 24px; padding-bottom: 12px; margin-bottom: 20px; }
+.account-card { background: #c5a04a; padding: 20px; border-radius: 20px; color: #000; }
+.brown-shelf { background: #8b6826; padding: 15px; border-radius: 0 0 20px 20px; margin-top: -10px; }
+
+.action-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.action-grid button { background: #c5a04a; border: none; border-radius: 12px; padding: 10px 0; font-size: 9px; font-weight: 800; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+
+/* White transaction panel */
+.transactions-panel { background: #fff; padding: 20px; border-radius: 30px; }
+.trans-item { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #eee; }
+.pos-amt { color: #2e7d32; font-weight: 800; }
+
+/* Modal */
+.modal { display: none; position: fixed; top:0; left:0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
+.modal-content { background: #fff; padding: 30px; border-radius: 20px; width: 80%; text-align: center; }
