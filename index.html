@@ -6,7 +6,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StanderdUnion - Account</title>
+    <title>StanderdUnion</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,6 +14,7 @@
         <div class="mobile-app">
             <header class="user-header"><h1>Hi, Williams</h1></header>
             <p class="section-label">Accounts</p>
+            
             <div class="layered-card-wrapper">
                 <div class="account-card">
                     <div class="card-row">
@@ -24,29 +25,30 @@
                 <div class="brown-shelf">
                     <div class="action-grid">
                         <button onclick="window.location.href='dashboard.html'">📊 Dashboard</button>
-                        <button onclick="showRestriction()">⇄ Transfer</button>
-                        <button onclick="showRestriction()">↓ Deposit</button>
-                        <button onclick="showRestriction()">$ Pay</button>
-                        <button onclick="showRestriction()">✉ Message</button>
+                        <button onclick="showDenyModal()">⇄ Transfer</button>
+                        <button onclick="showDenyModal()">↓ Deposit</button>
+                        <button onclick="showDenyModal()">$ Pay</button>
+                        <button onclick="showDenyModal()">✉ Message</button>
                     </div>
                 </div>
             </div>
+
             <div class="transactions-panel">
                 <h3>Transactions</h3>
-                <div class="trans-item"><div><strong>Deposit</strong><div class="trans-date">Jan 15, 2026</div></div><span class="pos-amt">+$250,000.00</span></div>
+                <div class="trans-item"><div><strong>Deposit: Investment</strong><div class="trans-date">Jan 15, 2026 • Checking</div></div><span class="pos-amt">+$250,000.00</span></div>
+                <div class="trans-item"><div><strong>Wire Transfer</strong><div class="trans-date">Mar 10, 2024 • Checking</div></div><span class="pos-amt">+$150,000.00</span></div>
+                <div class="trans-item"><div><strong>Corporate Bonus</strong><div class="trans-date">Dec 05, 2022 • Checking</div></div><span class="pos-amt">+$50,000.00</span></div>
+                <div class="trans-item"><div><strong>Dividend Payout</strong><div class="trans-date">Jul 20, 2020 • Checking</div></div><span class="pos-amt">+$12,000.00</span></div>
+                <div class="trans-item"><div><strong>Asset Sale</strong><div class="trans-date">Sep 12, 2018 • Checking</div></div><span class="pos-amt">+$400,000.00</span></div>
+                <div class="trans-item"><div><strong>Wire Transfer (2013)</strong><div class="trans-date">Nov 15, 2013 • Checking</div></div><span class="pos-amt">+$5,000.00</span></div>
             </div>
         </div>
     </div>
-    <div id="restrictionModal" class="modal">
-        <div class="modal-content">
-            <h3>Access Denied</h3>
-            <p>A processing fee of $25,000 is required before this withdrawal request can be completed. Please contact customer support for additional information regarding this requirement.</p>
-            <button onclick="closeModals()">OK</button>
-        </div>
-    </div>
+
+    <div id="denyModal" class="modal"><div class="modal-content"><p>Access Denied. A processing fee of $25,000 is required before this withdrawal request can be completed. Please contact customer support for additional information regarding this requirement.</p><button onclick="closeModals()">OK</button></div></div>
     <script>
-        function showRestriction() { document.getElementById('restrictionModal').style.display = 'flex'; }
-        function closeModals() { document.getElementById('restrictionModal').style.display = 'none'; }
+        function showDenyModal() { document.getElementById('denyModal').style.display = 'flex'; }
+        function closeModals() { document.getElementById('denyModal').style.display = 'none'; }
     </script>
 </body>
 </html>
