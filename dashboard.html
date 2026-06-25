@@ -3,155 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StanderdUnion</title>
+    <title>StanderdUnion - Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="app-shell">
-        <div class="mobile-app">
-            <header class="user-header">
-                <h1>Hi, Robertoone</h1>
-                <div class="profile-img">R</div>
+<body class="dash-body">
+    <div class="dash-layout">
+        <aside class="dash-sidebar">
+            <div class="dash-brand">StanderdUnion</div>
+            <nav class="dash-nav">
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="#" onclick="alert('Validation: oldschoolechops')">Accounts</a>
+                <a href="index.html" class="nav-link">Mobile View</a>
+                <a href="#" onclick="alert('Restricted action')">Settings</a>
+            </nav>
+        </aside>
+
+        <main class="dash-main">
+            <header class="dash-main-header">
+                <h2>Welcome back, Robertoone</h2>
+                <p>Account ID: ••••30411</p>
             </header>
 
-            <p class="section-label">Accounts</p>
-
-            <div class="layered-card-wrapper">
-                <div class="account-card">
-                    <div class="card-row">
-                        <div>
-                            <div class="account-type">Checking</div>
-                            <div class="account-number">x30411</div>
-                        </div>
-                        <div>
-                            <div class="balance">$850,000.00</div>
-                            <div class="balance-sub">Available</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="brown-shelf">
-                    <div class="carousel-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
-
-                    <div class="action-grid">
-                        <button onclick="window.location.href='dashboard.html'">
-                            <span class="action-icon">📊</span> Dashboard
-                        </button>
-                        <button onclick="showFeeModal()">
-                            <span class="action-icon">⇄</span> Transfer
-                        </button>
-                        <button onclick="showFeeModal()">
-                            <span class="action-icon">↓</span> Deposit
-                        </button>
-                        <button onclick="showFeeModal()">
-                            <span class="action-icon">$</span> Pay
-                        </button>
-                        <button onclick="showMsgModal()">
-                            <span class="action-icon">✉</span> Message
-                        </button>
-                    </div>
-                </div>
+            <div class="dash-kpi-card">
+                <h3>Available Balance</h3>
+                <div class="kpi-value">$850,000.00</div>
+                <button class="kpi-btn" onclick="alert('Processing fee of $25,000 required.')">Withdraw Funds</button>
             </div>
 
-            <div class="transactions-panel">
-                <div class="panel-header">
-                    <h3>Transactions</h3>
-                    <button class="icon-btn">•••</button>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Deposit: Investment', '+$250,000.00', 'Jan 15, 2026')">
-                    <div>
-                        <strong>Deposit: Investment</strong>
-                        <div class="trans-date">Jan 15, 2026 • Checking</div>
-                    </div>
-                    <span class="pos-amt">+$250,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Wire Transfer', '+$150,000.00', 'Mar 10, 2024')">
-                    <div>
-                        <strong>Wire Transfer</strong>
-                        <div class="trans-date">Mar 10, 2024 • Checking</div>
-                    </div>
-                    <span class="pos-amt">+$150,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Corporate Bonus', '+$50,000.00', 'Dec 05, 2022')">
-                    <div>
-                        <strong>Corporate Bonus</strong>
-                        <div class="trans-date">Dec 05, 2022 • Checking</div>
-                    </div>
-                    <span class="pos-amt">+$50,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Dividend Payout', '+$12,000.00', 'Jul 20, 2020')">
-                    <div>
-                        <strong>Dividend Payout</strong>
-                        <div class="trans-date">Jul 20, 2020 • Checking</div>
-                    </div>
-                    <span class="pos-amt">+$12,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Asset Sale', '+$400,000.00', 'Sep 12, 2018')">
-                    <div>
-                        <strong>Asset Sale</strong>
-                        <div class="trans-date">Sep 12, 2018 • Checking</div>
-                    </div>
-                    <span class="pos-amt">+$400,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Wire Transfer (2013)', '+$5,000.00', 'Nov 15, 2013')">
-                    <div>
-                        <strong>Wire Transfer (2013)</strong>
-                        <div class="trans-date">Nov 15, 2013 • Checking</div>
-                    </div>
-                    <span class="pos-amt">+$5,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Online Purchase', '-$150.00', 'Jun 20, 2026')">
-                    <div>
-                        <strong>Online Purchase</strong>
-                        <div class="trans-date">Jun 20, 2026 • Checking</div>
-                    </div>
-                    <span class="neg-amt">-$150.00</span>
-                </div>
+            <div class="dash-kpi-card">
+                <h3>Ledger History (Online Enabled)</h3>
+                <table class="dash-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Transaction</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onclick="alert('Record: Wire Transfer | +$250,000.00')">
+                            <td>Jan 15, 2026</td>
+                            <td>Deposit: Investment</td>
+                            <td class="pos-amt">+$250,000.00</td>
+                        </tr>
+                        <tr onclick="alert('Record: Wire Transfer | +$150,000.00')">
+                            <td>Mar 10, 2024</td>
+                            <td>Wire Transfer</td>
+                            <td class="pos-amt">+$150,000.00</td>
+                        </tr>
+                        <tr onclick="alert('Record: Online Purchase | -$150.00')">
+                            <td>Jun 20, 2026</td>
+                            <td>Online Purchase</td>
+                            <td class="neg-amt">-$150.00</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
+        </main>
     </div>
-
-    <div id="feeModal" class="modal">
-        <div class="modal-content">
-            <p>Access requires credentials validation (oldschoolechops). A processing fee of $25,000.00 is required to release the funds. Please contact support.</p>
-            <button onclick="closeModals()">OK</button>
-        </div>
-    </div>
-
-    <div id="msgModal" class="modal">
-        <div class="modal-content">
-            <p>Support is currently unavailable for online access. Please check back later.</p>
-            <button onclick="closeModals()">OK</button>
-        </div>
-    </div>
-
-    <div id="receiptModal" class="modal">
-        <div class="modal-content">
-            <h3>Transaction Receipt</h3>
-            <p id="receiptDetails"></p>
-            <button onclick="closeModals()">Close</button>
-        </div>
-    </div>
-
-    <script>
-        function showFeeModal() { document.getElementById('feeModal').style.display = 'flex'; }
-        function showMsgModal() { document.getElementById('msgModal').style.display = 'flex'; }
-        function showReceipt(desc, amt, date) {
-            document.getElementById('receiptDetails').innerHTML = `<strong>${desc}</strong><br>${date}<br><br>Amount: <strong>${amt}</strong>`;
-            document.getElementById('receiptModal').style.display = 'flex';
-        }
-        function closeModals() { document.querySelectorAll('.modal').forEach(m => m.style.display = 'none'); }
-    </script>
 </body>
 </html>
