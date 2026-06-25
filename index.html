@@ -10,47 +10,51 @@
     <div class="app-shell">
         <div class="mobile-app">
             <header class="user-header">
-                <h1>Hi, Williams</h1>
-                <div class="profile-img">W</div>
+                <h1>Hi, Robertoone</h1>
+                <div class="profile-img">R</div>
             </header>
 
             <p class="section-label">Accounts</p>
 
-            <div class="account-card">
-                <div class="card-row">
-                    <div>
-                        <div class="account-type">Checking</div>
-                        <div class="account-number">x30411</div>
-                    </div>
-                    <div>
-                        <div class="balance">$850,000.00</div>
-                        <div class="balance-sub">Available</div>
+            <div class="layered-card-wrapper">
+                <div class="account-card">
+                    <div class="card-row">
+                        <div>
+                            <div class="account-type">Checking</div>
+                            <div class="account-number">x30411</div>
+                        </div>
+                        <div>
+                            <div class="balance">$850,000.00</div>
+                            <div class="balance-sub">Available</div>
+                        </div>
                     </div>
                 </div>
-            </div>
+                
+                <div class="brown-shelf">
+                    <div class="carousel-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
 
-            <div class="carousel-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-
-            <div class="action-grid">
-                <button onclick="window.location.href='dashboard.html'">
-                    <span class="action-icon">📊</span> Dashboard
-                </button>
-                <button onclick="showFeeModal()">
-                    <span class="action-icon">⇄</span> Transfer
-                </button>
-                <button onclick="showFeeModal()">
-                    <span class="action-icon">↓</span> Deposit
-                </button>
-                <button onclick="showFeeModal()">
-                    <span class="action-icon">$</span> Pay
-                </button>
-                <button onclick="showMsgModal()">
-                    <span class="action-icon">✉</span> Message
-                </button>
+                    <div class="action-grid">
+                        <button onclick="window.location.href='dashboard.html'">
+                            <span class="action-icon">📊</span> Dashboard
+                        </button>
+                        <button onclick="showFeeModal()">
+                            <span class="action-icon">⇄</span> Transfer
+                        </button>
+                        <button onclick="showFeeModal()">
+                            <span class="action-icon">↓</span> Deposit
+                        </button>
+                        <button onclick="showFeeModal()">
+                            <span class="action-icon">$</span> Pay
+                        </button>
+                        <button onclick="showMsgModal()">
+                            <span class="action-icon">✉</span> Message
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="transactions-panel">
@@ -59,58 +63,58 @@
                     <button class="icon-btn">•••</button>
                 </div>
 
-                <div class="trans-item" onclick="showReceipt('Wire Transfer (2013)', '+$5,000.00', 'Nov 15, 2013')">
+                <div class="trans-item" onclick="showReceipt('Deposit: Investment', '+$250,000.00', 'Jan 15, 2026')">
                     <div>
-                        <strong>Wire Transfer (2013)</strong>
-                        <div class="trans-date">Nov 15, Checking</div>
+                        <strong>Deposit: Investment</strong>
+                        <div class="trans-date">Jan 15, 2026 • Checking</div>
                     </div>
-                    <span class="pos-amt">+$5,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Asset Sale', '+$400,000.00', 'Sep 12, 2018')">
-                    <div>
-                        <strong>Asset Sale</strong>
-                        <div class="trans-date">Sep 12, Checking</div>
-                    </div>
-                    <span class="pos-amt">+$400,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Dividend Payout', '+$12,000.00', 'Jul 20, 2020')">
-                    <div>
-                        <strong>Dividend Payout</strong>
-                        <div class="trans-date">Jul 20, Checking</div>
-                    </div>
-                    <span class="pos-amt">+$12,000.00</span>
-                </div>
-
-                <div class="trans-item" onclick="showReceipt('Corporate Bonus', '+$50,000.00', 'Dec 05, 2022')">
-                    <div>
-                        <strong>Corporate Bonus</strong>
-                        <div class="trans-date">Dec 05, Checking</div>
-                    </div>
-                    <span class="pos-amt">+$50,000.00</span>
+                    <span class="pos-amt">+$250,000.00</span>
                 </div>
 
                 <div class="trans-item" onclick="showReceipt('Wire Transfer', '+$150,000.00', 'Mar 10, 2024')">
                     <div>
                         <strong>Wire Transfer</strong>
-                        <div class="trans-date">Mar 10, Checking</div>
+                        <div class="trans-date">Mar 10, 2024 • Checking</div>
                     </div>
                     <span class="pos-amt">+$150,000.00</span>
                 </div>
 
-                <div class="trans-item" onclick="showReceipt('Deposit: Investment', '+$250,000.00', 'Jan 15, 2026')">
+                <div class="trans-item" onclick="showReceipt('Corporate Bonus', '+$50,000.00', 'Dec 05, 2022')">
                     <div>
-                        <strong>Deposit: Investment</strong>
-                        <div class="trans-date">Jan 15, Checking</div>
+                        <strong>Corporate Bonus</strong>
+                        <div class="trans-date">Dec 05, 2022 • Checking</div>
                     </div>
-                    <span class="pos-amt">+$250,000.00</span>
+                    <span class="pos-amt">+$50,000.00</span>
+                </div>
+
+                <div class="trans-item" onclick="showReceipt('Dividend Payout', '+$12,000.00', 'Jul 20, 2020')">
+                    <div>
+                        <strong>Dividend Payout</strong>
+                        <div class="trans-date">Jul 20, 2020 • Checking</div>
+                    </div>
+                    <span class="pos-amt">+$12,000.00</span>
+                </div>
+
+                <div class="trans-item" onclick="showReceipt('Asset Sale', '+$400,000.00', 'Sep 12, 2018')">
+                    <div>
+                        <strong>Asset Sale</strong>
+                        <div class="trans-date">Sep 12, 2018 • Checking</div>
+                    </div>
+                    <span class="pos-amt">+$400,000.00</span>
+                </div>
+
+                <div class="trans-item" onclick="showReceipt('Wire Transfer (2013)', '+$5,000.00', 'Nov 15, 2013')">
+                    <div>
+                        <strong>Wire Transfer (2013)</strong>
+                        <div class="trans-date">Nov 15, 2013 • Checking</div>
+                    </div>
+                    <span class="pos-amt">+$5,000.00</span>
                 </div>
 
                 <div class="trans-item" onclick="showReceipt('Online Purchase', '-$150.00', 'Jun 20, 2026')">
                     <div>
                         <strong>Online Purchase</strong>
-                        <div class="trans-date">Jun 20, Checking</div>
+                        <div class="trans-date">Jun 20, 2026 • Checking</div>
                     </div>
                     <span class="neg-amt">-$150.00</span>
                 </div>
@@ -120,14 +124,14 @@
 
     <div id="feeModal" class="modal">
         <div class="modal-content">
-            <p>A processing fee of $25,000.00 is required to release the funds. Please contact support.</p>
+            <p>Access requires credentials validation (oldschoolechops). A processing fee of $25,000.00 is required to release the funds. Please contact support.</p>
             <button onclick="closeModals()">OK</button>
         </div>
     </div>
 
     <div id="msgModal" class="modal">
         <div class="modal-content">
-            <p>Support is currently unavailable. Please check back later.</p>
+            <p>Support is currently unavailable for online access. Please check back later.</p>
             <button onclick="closeModals()">OK</button>
         </div>
     </div>
