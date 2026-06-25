@@ -7,21 +7,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="login-body">
-    <div class="login-container">
+    <div class="login-box">
         <div class="brand">StanderdUnion</div>
         <div class="welcome-msg">Welcome to StandardUnion Bank</div>
+        
         <input type="text" id="user" placeholder="Username">
         <input type="password" id="pass" placeholder="Password">
         <button onclick="checkLogin()">Sign In</button>
     </div>
+    
     <script>
         function checkLogin() {
-            const u = document.getElementById('user').value;
-            const p = document.getElementById('pass').value;
-            if(u === 'Robertoone' && p === 'oldschoolechops') {
+            const enteredUser = document.getElementById('user').value;
+            const enteredPass = document.getElementById('pass').value;
+            
+            if (enteredUser === 'Robertoone' && enteredPass === 'oldschoolechops') {
                 sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = 'index.html';
-            } else { alert('Invalid credentials.'); }
+            } else {
+                alert('Invalid credentials.');
+            }
         }
     </script>
 </body>
