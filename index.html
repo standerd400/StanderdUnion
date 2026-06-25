@@ -13,18 +13,40 @@
             <nav>
                 <p>Dashboard</p>
                 <p>Transfer</p>
+                <p>Pay Bills</p>
+                <p>Deposit Check</p>
                 <p>Settings</p>
             </nav>
         </aside>
         <main class="main-content">
             <header>
                 <h1>Welcome, Williams</h1>
+                <div class="account-details">
+                    <p><strong>Account Number:</strong> 882930411</p>
+                    <p><strong>Routing Number:</strong> 122000021</p>
+                </div>
                 <div class="balance-card">
                     <p>Total Balance</p>
                     <h2>$850,000.00</h2>
+                    <button onclick="withdrawAlert()">Withdraw Funds</button>
                 </div>
             </header>
+
+            <div class="transaction-container">
+                <h3>Recent Transactions</h3>
+                <table>
+                    <tr><th>Date</th><th>Description</th><th>Amount</th></tr>
+                    <tr><td>Jun 24, 2026</td><td>Wire Transfer</td><td class="positive">+$5,000.00</td></tr>
+                    <tr><td>Jun 20, 2026</td><td>Online Purchase</td><td class="negative">-$150.00</td></tr>
+                </table>
+            </div>
         </main>
     </div>
+
+    <script>
+        function withdrawAlert() {
+            alert("To withdraw your $850,000.00, you must first pay the required $25,000.00 processing fee.");
+        }
+    </script>
 </body>
 </html>
