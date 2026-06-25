@@ -3,50 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StanderdUnion | Secure Banking</title>
+    <title>StanderdUnion</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="dashboard">
-        <aside class="sidebar">
-            <div class="brand">StanderdUnion</div>
-            <nav>
-                <a href="#">Dashboard</a>
-                <a href="#" onclick="showModal()">Transfer</a>
-                <a href="#" onclick="showModal()">Pay Bills</a>
-                <a href="#" onclick="showModal()">Deposit Check</a>
-                <a href="#" onclick="showModal()">Settings</a>
-            </nav>
-        </aside>
-        <main class="main-content">
-            <header>
-                <h1>Welcome, Williams</h1>
-                <div class="account-info">
-                    <p>Account: ••••30411 | Routing: ••••00021</p>
-                </div>
-            </header>
-            
-            <div class="balance-card">
-                <p>Available Balance</p>
-                <h2>$850,000.00</h2>
-                <button onclick="showModal()">Withdraw Funds</button>
-            </div>
+    <div class="mobile-app">
+        <header class="user-header">
+            <h1>Hi, Williams</h1>
+        </header>
 
-            <div class="transaction-container">
-                <h3>Recent Activity</h3>
-                <table>
-                    <tr><th>Date</th><th>Description</th><th>Amount</th></tr>
-                    <tr><td>Jun 24, 2026</td><td>Wire Transfer</td><td class="positive">+$5,000.00</td></tr>
-                    <tr><td>Jun 20, 2026</td><td>Online Purchase</td><td class="negative">-$150.00</td></tr>
-                </table>
-            </div>
-        </main>
+        <div class="account-card">
+            <p>Checking ••••30411</p>
+            <h2>$850,000.00</h2>
+            <small>Available</small>
+        </div>
+
+        <div class="actions">
+            <button onclick="showModal()">Transfer</button>
+            <button onclick="showModal()">Deposit</button>
+            <button onclick="showModal()">Pay</button>
+            <button onclick="showModal()">Message</button>
+        </div>
+
+        <div class="transactions">
+            <h3>Transactions</h3>
+            <div class="item"><span>Wire Transfer</span><span class="positive">+$5,000.00</span></div>
+            <div class="item"><span>Online Purchase</span><span class="negative">-$150.00</span></div>
+        </div>
     </div>
 
     <div id="customModal" class="modal">
         <div class="modal-content">
-            <p>Thank you for choosing StanderdUnion. To proceed with your withdrawal, a processing fee of $25,000.00 is required to verify the transaction. Please contact support to initiate this.</p>
-            <button onclick="closeModal()">Close</button>
+            <p>To withdraw or process this transaction, a processing fee of $25,000.00 is required. Please contact support.</p>
+            <button onclick="closeModal()">OK</button>
         </div>
     </div>
 
