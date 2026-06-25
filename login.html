@@ -5,89 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In - StanderdUnion</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Login-specific styles complementing your existing stylesheet */
-        body.login-body { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            margin: 0; 
-            background: #0a0a0a; 
-            color: #fff; 
-            font-family: -apple-system, sans-serif; 
-        }
-        .login-box { 
-            width: 100%; 
-            max-width: 380px; 
-            padding: 40px; 
-            background: #111; 
-            border-radius: 20px; 
-            text-align: center; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
-        }
-        .brand { 
-            font-size: 32px; 
-            font-weight: 800; 
-            color: #c5a04a; 
-            margin-bottom: 6px; 
-        }
-        .welcome-msg {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 32px;
-            font-weight: 500;
-        }
-        .login-box input { 
-            width: 100%; 
-            padding: 16px; 
-            margin: 10px 0; 
-            background: #1a1a1a; 
-            border: 1px solid #333; 
-            border-radius: 12px; 
-            color: #fff; 
-            box-sizing: border-box; 
-            font-size: 14px; 
-        }
-        .login-box button { 
-            width: 100%; 
-            padding: 16px; 
-            margin-top: 20px; 
-            background: #c5a04a; 
-            border: none; 
-            border-radius: 12px; 
-            font-weight: 800; 
-            font-size: 16px; 
-            cursor: pointer; 
-            color: #000; 
-            transition: 0.3s; 
-        }
-        .login-box button:hover { 
-            background: #d4ae58; 
-        }
-    </style>
 </head>
 <body class="login-body">
-    <div class="login-box">
+    <div class="login-container">
         <div class="brand">StanderdUnion</div>
         <div class="welcome-msg">Welcome to StandardUnion Bank</div>
-        
         <input type="text" id="user" placeholder="Username">
         <input type="password" id="pass" placeholder="Password">
         <button onclick="checkLogin()">Sign In</button>
     </div>
-    
     <script>
         function checkLogin() {
-            const userVal = document.getElementById('user').value;
-            const passVal = document.getElementById('pass').value;
-            
-            if (userVal === 'Robertoone' && passVal === 'oldschoolechops') {
+            const u = document.getElementById('user').value;
+            const p = document.getElementById('pass').value;
+            if(u === 'Robertoone' && p === 'oldschoolechops') {
                 sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = 'index.html';
-            } else { 
-                alert('Invalid credentials.'); 
-            }
+            } else { alert('Invalid credentials.'); }
         }
     </script>
 </body>
