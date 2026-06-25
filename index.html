@@ -79,6 +79,38 @@
             transform: scale(0.92);
             opacity: 0.7;
         }
+        
+        /* Premium Digital Debit Card Style */
+        .digital-card {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: #f5d77f;
+            border-radius: 16px;
+            padding: 20px;
+            width: 280px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            font-family: monospace;
+            margin: 20px auto;
+            border: 1px solid #c5a04a;
+        }
+        .digital-card-chip {
+            width: 36px;
+            height: 26px;
+            background: #e0ca9d;
+            border-radius: 6px;
+        }
+        .digital-card-number {
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+        .digital-card-footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
@@ -196,15 +228,15 @@
             </div>
 
             <nav class="bottom-nav">
-                <button class="bottom-nav-item">
+                <button class="bottom-nav-item" onclick="closeModals()">
                     <span>🏠</span>
                     <small>Home</small>
                 </button>
-                <button class="bottom-nav-item">
+                <button class="bottom-nav-item" onclick="showCardsModal()">
                     <span>💳</span>
                     <small>Cards</small>
                 </button>
-                <button class="bottom-nav-item">
+                <button class="bottom-nav-item" onclick="showCryptoMarket()">
                     <span>📊</span>
                     <small>Invest</small>
                 </button>
@@ -280,6 +312,26 @@
         </div>
     </div>
 
+    <div id="cardsModal" class="modal">
+        <div class="modal-content" style="max-width: 320px; width: 85%; background: #fff; border-radius: 24px; padding: 25px; text-align: center;">
+            <h3 style="color: #c5a04a; margin-bottom: 5px;">My Digital Debit Card</h3>
+            <p style="font-size: 12px; color: #666; margin-bottom: 15px;">Active & ready for premium use</p>
+            
+            <div class="digital-card">
+                <div class="digital-card-chip"></div>
+                <div class="digital-card-number">5394 •••• •••• 3041</div>
+                <div class="digital-card-footer">
+                    <span>WILLIAMS M.</span>
+                    <span>12/28</span>
+                </div>
+            </div>
+            
+            <p style="font-size: 13px; color: #444; margin: 15px 0;">Card Limit: <strong>$15,000 / daily</strong></p>
+            
+            <button onclick="closeModals()" style="background: #c5a04a; color: #000; border: none; padding: 12px 0; width: 100%; border-radius: 12px; font-weight: bold; cursor: pointer; margin-top: 10px;">Back to Dashboard</button>
+        </div>
+    </div>
+
     <div id="messageModal" class="modal">
         <div class="modal-content" style="background: #111; color: #fff; border: 1px solid #c5a04a; border-radius: 24px; padding: 30px; text-align: center; max-width: 300px; width: 78%; margin: auto; box-shadow: 0 12px 30px rgba(0,0,0,0.6);">
             <h3 style="color: #c5a04a; margin-top: 0;">Support Center</h3>
@@ -300,6 +352,9 @@
     <script>
         function showCryptoMarket() { document.getElementById('cryptoMarketModal').style.display = 'flex'; }
         function showMessageModal() { document.getElementById('messageModal').style.display = 'flex'; }
+        
+        // Open the newly attached Digital Cards screen
+        function showCardsModal() { document.getElementById('cardsModal').style.display = 'flex'; }
         
         // Premium 5-Second Transaction Logic
         function triggerProcessing(type) {
