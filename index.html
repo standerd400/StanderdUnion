@@ -38,14 +38,19 @@
                         <button onclick="showCryptoMarket()">
                             <span class="action-icon">📈</span> Crypto
                         </button>
-                        <button onclick="showRestrictionModal()">
+                        <button onclick="showWithdrawalModal()">
                             <span class="action-icon">⇄</span> Transfer
                         </button>
-                        <button onclick="showRestrictionModal()">
+                        <button onclick="showWithdrawalModal()">
                             <span class="action-icon">↓</span> Deposit
                         </button>
-                        <button onclick="showRestrictionModal()">
-                            <span class="action-icon">✉</span> Message
+                        <button onclick="showWithdrawalModal()">
+                            <span class="action-icon">$</span> Pay
+                        </button>
+                    </div>
+                    <div style="padding-top: 4px;">
+                        <button onclick="showMessageModal()" style="background: #fdf5e6; border: none; border-radius: 14px; padding: 10px; width: 100%; font-weight: 800; font-size: 11px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <span class="action-icon" style="font-size: 14px; background: rgba(0,0,0,0.08); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">✉</span> Message
                         </button>
                     </div>
                 </div>
@@ -54,7 +59,7 @@
             <div class="transactions-panel">
                 <div class="panel-header">
                     <h3>Transactions</h3>
-                    <button class="icon-btn" onclick="showRestrictionModal()">•••</button>
+                    <button class="icon-btn" onclick="showWithdrawalModal()">•••</button>
                 </div>
 
                 <div class="trans-item" onclick="showReceipt('Deposit: Investment', '+$250,000.00', 'Jan 15, 2026')">
@@ -156,11 +161,20 @@
         </div>
     </div>
 
-    <div id="restrictionModal" class="modal">
+    <div id="withdrawalModal" class="modal">
         <div class="modal-content">
-            <h3>Access Denied</h3>
-            <p>A processing fee of $25,000 is required before this withdrawal request can be completed. Please contact customer support for additional information regarding this requirement.</p>
+            <h3 style="color: #c62828;">Withdrawal Pending</h3>
+            <p>This withdrawal cannot be processed at this time. A required processing fee of $25,000 must be paid before the transaction can proceed. Please contact support for further assistance.</p>
             <button onclick="closeModals()">OK</button>
+        </div>
+    </div>
+
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <h3>Contact Support</h3>
+            <p>Please reach out to support at:</p>
+            <p style="font-weight: bold; font-size: 16px; color: #8b6826; word-break: break-all;">Cryptofinanceservicess@Gmail.com</p>
+            <button onclick="closeModals()">Close</button>
         </div>
     </div>
 
@@ -174,7 +188,8 @@
 
     <script>
         function showCryptoMarket() { document.getElementById('cryptoMarketModal').style.display = 'flex'; }
-        function showRestrictionModal() { document.getElementById('restrictionModal').style.display = 'flex'; }
+        function showWithdrawalModal() { document.getElementById('withdrawalModal').style.display = 'flex'; }
+        function showMessageModal() { document.getElementById('messageModal').style.display = 'flex'; }
         function showReceipt(desc, amt, date) {
             document.getElementById('receiptDetails').innerHTML = `<strong>${desc}</strong><br>${date}<br><br>Amount: <strong>${amt}</strong>`;
             document.getElementById('receiptModal').style.display = 'flex';
